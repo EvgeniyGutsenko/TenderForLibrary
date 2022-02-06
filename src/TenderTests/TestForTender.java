@@ -36,7 +36,6 @@ public class TestForTender {
         skills2.add(Skills.ELECTRIC);
     }
 
-
     private static final Set<Skills> skills3 = new HashSet<>();
 
     {
