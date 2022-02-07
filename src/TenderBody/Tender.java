@@ -46,6 +46,9 @@ public class Tender {
 
     @Override
     public String toString() {
-        return (skills + "=" + quantity).replaceAll("\\[|\\]|\\<|\\>", "");
+        return "Tender{" +
+                "quantity=" + quantity +
+                ", skills=" + skills +
+                '}';
     }
 }

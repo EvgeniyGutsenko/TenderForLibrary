@@ -43,8 +43,11 @@ public class Brigade extends Worker {
         return Objects.hash(super.hashCode(), getWorkers(), getPrice());
     }
 
+    @Override
     public String toString() {
-        return ("Brigade{" + workers + ", " + "price: " + price + '}' + "\n")
-                .replaceAll("\\[|\\]|\\<|\\>", "");
+        return "Brigade{" +
+                "workers=" + workers +
+                ", price=" + price +
+                '}';
     }
 }
