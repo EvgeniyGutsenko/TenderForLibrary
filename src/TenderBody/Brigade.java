@@ -3,7 +3,7 @@ package TenderBody;
 import java.util.List;
 import java.util.Objects;
 
-public class Brigade extends Worker {
+public class Brigade{
 
     private List<Worker> workers;
     private int price;
@@ -43,8 +43,11 @@ public class Brigade extends Worker {
         return Objects.hash(super.hashCode(), getWorkers(), getPrice());
     }
 
+    @Override
     public String toString() {
-        return ("Brigade{" + workers + ", " + "price: " + price + '}' + "\n")
-                .replaceAll("\\[|\\]|\\<|\\>", "");
+        return "Brigade{" +
+                "workers=" + workers +
+                ", price=" + price +
+                '}';
     }
 }
