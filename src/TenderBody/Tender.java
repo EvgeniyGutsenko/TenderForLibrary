@@ -2,8 +2,6 @@ package TenderBody;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import Exception.UnsuitableArgumentsException;
 
 public class Tender {
@@ -32,10 +30,12 @@ public class Tender {
     }
 
     public Map<String, Integer> convertWorkerToMap(List<Worker> workers) {
+
         ArrayList sb = new ArrayList();
         for (Worker w : workers) {
             sb.add(w.getSkills());
         }
+
         String[] brigade = sb.toString().replaceAll("\\[|\\]|\\<|\\>", "")
                 .replaceAll("\\s+", "").split(",");
 
