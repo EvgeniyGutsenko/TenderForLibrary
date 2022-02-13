@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 public class TestForTender {
 
-    private BrigadeChoice bc;
+    private Tender bc;
 
     private static final List<Tender> tender = Arrays.asList(new Tender(Skills.CRANE_OPERATOR, 1),
             new Tender(Skills.CARPENTER, 1), new Tender(Skills.MASON, 1),
@@ -172,12 +172,12 @@ public class TestForTender {
     }
 
     @Before
-    public void setUp() throws Exception {
-        bc = new BrigadeChoice();
+    public void setUp() throws UnsuitableArgumentsException {
+        bc = new Tender();
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() throws UnsuitableArgumentsException {
         bc = null;
     }
 

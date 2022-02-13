@@ -3,7 +3,7 @@ package TenderBody;
 import java.util.List;
 import java.util.Objects;
 
-public class Brigade extends Worker {
+public class Brigade{
 
     private List<Worker> workers;
     private int price;
