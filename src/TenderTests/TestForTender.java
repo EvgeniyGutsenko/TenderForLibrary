@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import java.util.*;
 
+import static TenderBody.Skills.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -16,76 +17,76 @@ public class TestForTender {
 
     private Tender bc;
 
-    private static final List<Tender> tender = Arrays.asList(new Tender(Skills.CRANE_OPERATOR, 1),
-            new Tender(Skills.CARPENTER, 1), new Tender(Skills.MASON, 1),
-            new Tender(Skills.FITTER, 2), new Tender(Skills.ELECTRIC, 2),
-            new Tender(Skills.PAINTER, 1));
+    private static final List<Tender> tender = Arrays.asList(new Tender(CRANE_OPERATOR, 1),
+            new Tender(CARPENTER, 1), new Tender(MASON, 1),
+            new Tender(FITTER, 2), new Tender(ELECTRIC, 2),
+            new Tender(PAINTER, 1));
 
     private static final Set<Skills> skills1 = new HashSet<>();
 
     {
-        skills1.add(Skills.FITTER);
-        skills1.add(Skills.CRANE_OPERATOR);
+        skills1.add(FITTER);
+        skills1.add(CRANE_OPERATOR);
     }
 
 
     private static final Set<Skills> skills2 = new HashSet<>();
 
     {
-        skills2.add(Skills.MASON);
-        skills2.add(Skills.ELECTRIC);
+        skills2.add(MASON);
+        skills2.add(ELECTRIC);
     }
 
     private static final Set<Skills> skills3 = new HashSet<>();
 
     {
-        skills3.add(Skills.FITTER);
-        skills3.add(Skills.ELECTRIC);
+        skills3.add(FITTER);
+        skills3.add(ELECTRIC);
     }
 
     private static final Set<Skills> skills4 = new HashSet<>();
 
     {
-        skills4.add(Skills.PAINTER);
+        skills4.add(PAINTER);
     }
 
     private static final Set<Skills> skills5 = new HashSet<>();
 
     {
-        skills5.add(Skills.CARPENTER);
+        skills5.add(CARPENTER);
     }
 
     private static final Set<Skills> skills6 = new HashSet<>();
 
     {
-        skills6.add(Skills.CARPENTER);
+        skills6.add(CARPENTER);
     }
 
     private static final Set<Skills> skills7 = new HashSet<>();
 
     {
-        skills7.add(Skills.MASON);
+        skills7.add(MASON);
     }
 
     private static final Set<Skills> skills8 = new HashSet<>();
 
     {
-        skills8.add(Skills.FITTER);
-        skills8.add(Skills.ELECTRIC);
+        skills8.add(FITTER);
+        skills8.add(ELECTRIC);
     }
 
     private static final Set<Skills> skills9 = new HashSet<>();
 
     {
-        skills9.add(Skills.PAINTER);
-        skills9.add(Skills.CRANE_OPERATOR);
+        skills9.add(PAINTER);
+        skills9.add(CRANE_OPERATOR);
     }
 
     private static final Set<Skills> skills10 = new HashSet<>();
 
     {
-        skills10.add(Skills.FITTER);
-        skills10.add(Skills.ELECTRIC);
+        skills10.add(FITTER);
+        skills10.add(ELECTRIC);
     }
 
     private static final Worker worker1 = new Worker(skills1);
@@ -99,15 +100,15 @@ public class TestForTender {
     private static final Worker worker9 = new Worker(skills9);
     private static final Worker worker10 = new Worker(skills10);
 
-    private static final Map<String, Integer> map_tender = new TreeMap<>();
+    private static final Map<Skills, Integer> map_tender = new TreeMap<>();
 
     {
-        map_tender.put(String.valueOf(Skills.CRANE_OPERATOR), 1);
-        map_tender.put(String.valueOf(Skills.MASON), 1);
-        map_tender.put(String.valueOf(Skills.CARPENTER), 1);
-        map_tender.put(String.valueOf(Skills.PAINTER), 1);
-        map_tender.put(String.valueOf(Skills.ELECTRIC), 2);
-        map_tender.put(String.valueOf(Skills.FITTER), 2);
+        map_tender.put((CRANE_OPERATOR), 1);
+        map_tender.put((MASON), 1);
+        map_tender.put((CARPENTER), 1);
+        map_tender.put((PAINTER), 1);
+        map_tender.put((ELECTRIC), 2);
+        map_tender.put((FITTER), 2);
     }
 
     private static final List<Worker> brigade1 = Arrays.asList(worker1, worker2, worker3, worker4, worker5);
@@ -120,55 +121,55 @@ public class TestForTender {
             new Brigade(brigade2, 170000),
             new Brigade(brigade3, 140000));
 
-    private static final Map<String, Integer> map_brigade1 = new TreeMap<>();
+    private static final Map<Skills, Integer> map_brigade1 = new TreeMap<>();
 
     {
-        map_brigade1.put(String.valueOf(Skills.CARPENTER), 1);
-        map_brigade1.put(String.valueOf(Skills.CRANE_OPERATOR), 1);
-        map_brigade1.put(String.valueOf(Skills.ELECTRIC), 2);
-        map_brigade1.put(String.valueOf(Skills.FITTER), 2);
-        map_brigade1.put(String.valueOf(Skills.MASON), 1);
-        map_brigade1.put(String.valueOf(Skills.PAINTER), 1);
+        map_brigade1.put((CARPENTER), 1);
+        map_brigade1.put((CRANE_OPERATOR), 1);
+        map_brigade1.put((ELECTRIC), 2);
+        map_brigade1.put((FITTER), 2);
+        map_brigade1.put((MASON), 1);
+        map_brigade1.put((PAINTER), 1);
     }
 
-    private static final Map<String, Integer> map_brigade2 = new TreeMap<>();
+    private static final Map<Skills, Integer> map_brigade2 = new TreeMap<>();
 
     {
-        map_brigade2.put(String.valueOf(Skills.CARPENTER), 1);
-        map_brigade2.put(String.valueOf(Skills.CRANE_OPERATOR), 1);
-        map_brigade2.put(String.valueOf(Skills.ELECTRIC), 2);
-        map_brigade2.put(String.valueOf(Skills.FITTER), 2);
-        map_brigade2.put(String.valueOf(Skills.MASON), 1);
-        map_brigade2.put(String.valueOf(Skills.PAINTER), 1);
+        map_brigade2.put((CARPENTER), 1);
+        map_brigade2.put((CRANE_OPERATOR), 1);
+        map_brigade2.put((ELECTRIC), 2);
+        map_brigade2.put((FITTER), 2);
+        map_brigade2.put((MASON), 1);
+        map_brigade2.put((PAINTER), 1);
     }
 
-    private static final Map<String, Integer> map_brigade3 = new TreeMap<>();
+    private static final Map<Skills, Integer> map_brigade3 = new TreeMap<>();
 
     {
-        map_brigade3.put(String.valueOf(Skills.CRANE_OPERATOR), 2);
-        map_brigade3.put(String.valueOf(Skills.ELECTRIC), 2);
-        map_brigade3.put(String.valueOf(Skills.FITTER), 2);
-        map_brigade3.put(String.valueOf(Skills.MASON), 1);
-        map_brigade3.put(String.valueOf(Skills.PAINTER), 2);
+        map_brigade3.put((CRANE_OPERATOR), 2);
+        map_brigade3.put((ELECTRIC), 2);
+        map_brigade3.put((FITTER), 2);
+        map_brigade3.put((MASON), 1);
+        map_brigade3.put((PAINTER), 2);
     }
 
-    private static final Map<String, Integer> map_brigade4 = new TreeMap<>();
+    private static final Map<Skills, Integer> map_brigade4 = new TreeMap<>();
 
     {
-        map_brigade4.put(String.valueOf(Skills.ELECTRIC), 2);
-        map_brigade4.put(String.valueOf(Skills.FITTER), 1);
-        map_brigade4.put(String.valueOf(Skills.MASON), 2);
-        map_brigade4.put(String.valueOf(Skills.PAINTER), 1);
+        map_brigade4.put((ELECTRIC), 2);
+        map_brigade4.put((FITTER), 1);
+        map_brigade4.put((MASON), 2);
+        map_brigade4.put((PAINTER), 1);
     }
 
-    private static final Map<String, Integer> map_brigade5 = new TreeMap<>();
+    private static final Map<Skills, Integer> map_brigade5 = new TreeMap<>();
 
     {
-        map_brigade5.put(String.valueOf(Skills.CARPENTER), 1);
-        map_brigade5.put(String.valueOf(Skills.CRANE_OPERATOR), 2);
-        map_brigade5.put(String.valueOf(Skills.ELECTRIC), 1);
-        map_brigade5.put(String.valueOf(Skills.FITTER), 2);
-        map_brigade5.put(String.valueOf(Skills.PAINTER), 1);
+        map_brigade5.put((CARPENTER), 1);
+        map_brigade5.put((CRANE_OPERATOR), 2);
+        map_brigade5.put((ELECTRIC), 1);
+        map_brigade5.put((FITTER), 2);
+        map_brigade5.put((PAINTER), 1);
     }
 
     @Before
@@ -183,54 +184,54 @@ public class TestForTender {
 
     @Test
     public void testTenderToMap() {
-        Map<String, Integer> expected = map_tender;
+        Map<Skills, Integer> expected = map_tender;
 
-        Map<String, Integer> actual = bc.convertTenderToMap(tender);
+        Map<Skills, Integer> actual = bc.convertTenderToMap(tender);
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testConvertWorkerToMap1() {
-        Map<String, Integer> expected = map_brigade1;
+        Map<Skills, Integer> expected = map_brigade1;
 
-        Map<String, Integer> actual = bc.convertWorkerToMap(brigade1);
+        Map<Skills, Integer> actual = bc.convertWorkerToMap((Brigade) brigade1);
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testConvertWorkerToMap2() {
-        Map<String, Integer> expected = map_brigade2;
+        Map<Skills, Integer> expected = map_brigade2;
 
-        Map<String, Integer> actual = bc.convertWorkerToMap(brigade2);
+        Map<Skills, Integer> actual = bc.convertWorkerToMap((Brigade) brigade2);
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testConvertWorkerToMap3() {
-        Map<String, Integer> expected = map_brigade3;
+        Map<Skills, Integer> expected = map_brigade3;
 
-        Map<String, Integer> actual = bc.convertWorkerToMap(brigade3);
+        Map<Skills, Integer> actual = bc.convertWorkerToMap((Brigade) brigade3);
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testConvertWorkerToMap4() {
-        Map<String, Integer> expected = map_brigade4;
+        Map<Skills, Integer> expected = map_brigade4;
 
-        Map<String, Integer> actual = bc.convertWorkerToMap(brigade4);
+        Map<Skills, Integer> actual = bc.convertWorkerToMap((Brigade) brigade4);
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testConvertWorkerToMap5() {
-        Map<String, Integer> expected = map_brigade5;
+        Map<Skills, Integer> expected = map_brigade5;
 
-        Map<String, Integer> actual = bc.convertWorkerToMap(brigade5);
+        Map<Skills, Integer> actual = bc.convertWorkerToMap((Brigade) brigade5);
 
         Assert.assertEquals(expected, actual);
     }

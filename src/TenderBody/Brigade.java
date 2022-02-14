@@ -1,5 +1,6 @@
 package TenderBody;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,6 +16,16 @@ public class Brigade{
 
     public List<Worker> getWorkers() {
         return workers;
+    }
+
+    public static int getCountSpeciality(Brigade brigade, Skills skill) {
+
+        int countSpeciality = 0;
+
+        for (Worker worker : brigade.getWorkers()) {
+            countSpeciality += Collections.frequency(worker.getSkills() ,skill);
+        }
+        return countSpeciality;
     }
 
     public void setWorkers(List<Worker> workers) {

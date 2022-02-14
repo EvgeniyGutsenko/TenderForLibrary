@@ -2,7 +2,9 @@ package TenderBody;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
 import Exception.UnsuitableArgumentsException;
+
 
 public class Tender {
 
@@ -25,35 +27,25 @@ public class Tender {
         return quantity;
     }
 
-    public Map<String, Integer> convertTenderToMap(List<Tender> tender) {
-        return tender.stream().collect(Collectors.toMap(k -> String.valueOf(k.getSkills()), v -> v.getQuantity()));
+    public Map<Skills, Integer> convertTenderToMap(List<Tender> tender) {
+        return tender.stream().collect(Collectors.toMap(k -> (k.getSkills()), v -> v.getQuantity()));
     }
 
-    public Map<String, Integer> convertWorkerToMap(List<Worker> workers) {
+    public Map<Skills, Integer> convertWorkerToMap(Brigade brigade) {
 
-        ArrayList sb = new ArrayList();
-        for (Worker w : workers) {
-            sb.add(w.getSkills());
+        Map<Skills, Integer> mapWorkers = new HashMap<>();
+
+        for (Skills skills : Skills.values()){
+            mapWorkers.put(skills, Brigade.getCountSpeciality(brigade, skills));
         }
 
-        String[] brigade = sb.toString().replaceAll("\\[|\\]|\\<|\\>", "")
-                .replaceAll("\\s+", "").split(",");
-
-        Map<String, Integer> mapWorkers = new TreeMap<>();
-        for (String worker : brigade) {
-            if (mapWorkers.keySet().contains(worker)) {
-                mapWorkers.put(worker, mapWorkers.get(worker) + 1);
-            } else {
-                mapWorkers.put(worker, 1);
-            }
-        }
         return mapWorkers;
     }
 
     public boolean equalsBrigadeWithTender(List<Tender> tender, List<Worker> workers) {
         return convertTenderToMap(tender)
-                .entrySet().containsAll(convertWorkerToMap(workers)
-                        .entrySet()) && convertWorkerToMap(workers)
+                .entrySet().containsAll(convertWorkerToMap((Brigade) workers)
+                        .entrySet()) && convertWorkerToMap((Brigade) workers)
                 .entrySet().containsAll(convertTenderToMap(tender).entrySet());
     }
 
